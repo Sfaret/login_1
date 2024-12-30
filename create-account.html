@@ -1,0 +1,75 @@
+<!-- create-account.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create Account</title>
+  <script defer src="app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/4.8.0/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.8.0/firebaseui.css" />
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyB1ukq-2QYRRfU4_UskNAAdivWSXKqZbWQ",
+      authDomain: "sfaret-login.firebaseapp.com",
+      projectId: "sfaret-login",
+      storageBucket: "sfaret-login.appspot.com",
+      messagingSenderId: "974930877645",
+      appId: "1:974930877645:web:a061cf07040ebf4fa19d84",
+      measurementId: "G-5EL0XNYEB7"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    var uiConfig = {
+      signInSuccessUrl: 'main.html',
+      signInOptions: [
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      ],
+    };
+
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    window.onload = function() {
+      ui.start('#firebaseui-auth-container', uiConfig);
+    };
+  </script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <script src="script.js" defer></script>
+  <script src="particles.js" defer></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="particles-js"></div>
+  <div class="container">
+    <h2 class="text-center mb-4"><i class="fas fa-user-plus"></i> Create Account</h2>
+    <form class="form" id="loginForm" onsubmit="register(event)">
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+      </div>
+      <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Create Account</button>
+    </form>
+    <div id="message"></div>
+    <p class="center-text"><a href="login.html">Already have an account? | Login here</a></p>
+  </div>
+
+  <!-- Bootstrap JS and Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
